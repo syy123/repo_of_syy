@@ -47,4 +47,3 @@ pl.title(u"相位-频率")
 pl.grid(True)'''
 pl.show()
 print "dev"
-print "dev2"
