@@ -326,13 +326,13 @@ class ChannelSource(wx.Panel):
             self.a = self.modulateReal[10.0*self.Fs:(self.number*self.Fs/self.div)+10.0*self.Fs:self.Fs]
             self.b = self.modulateImage[10.0*self.Fs:(self.number*self.Fs/self.div)+10.0*self.Fs:self.Fs]           
             self.PlotConfig(self)
-               
+              
 class NewFrame(wx.Frame):
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, -1, "frame", size = (800,600))
         self.newPanel = ChannelSource(self)
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.PySimpleApp(redirect = True)
     NewFrame(None).Show(True)
     app.MainLoop()
 
