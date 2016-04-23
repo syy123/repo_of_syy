@@ -46,4 +46,4 @@ pl.plot(f[0:N/2],pyy[0:N/2])
 pl.title(u"相位-频率")
 pl.grid(True)'''
 pl.show()
-print "dev"
+print 'master'
