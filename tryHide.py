@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Apr 24 10:01:32 2016
-
-@author: WB
-"""
+#! /usr/bin/env python
+#coding=utf-8
 
 import wx
+
 class MyFrame(wx.Frame):
     def __init__(self, parent=None, title=u'折叠与展开'):
         wx.Frame.__init__(self, parent, -1, title=title)
@@ -67,7 +64,7 @@ class MyFrame(wx.Frame):
         self.sizer.Add(self.bsizer, 0, wx.EXPAND, 20)
         self.isShown = False    #用这个变量指示当前是否已将控件隐藏
         self.sizer.Hide(self.sbsizer)    #将控件隐藏
-        self.SetClientSize((330,200))    #更改面板尺寸
+        self.SetClientSize((330,118))    #更改面板尺寸
         
         self.panel.SetSizerAndFit(self.sizer)
         self.sizer.SetSizeHints(self.panel)
@@ -77,7 +74,7 @@ class MyFrame(wx.Frame):
             self.setserverBtn.SetLabel(u'服务器设置↓')    #更新按钮标签
             self.sizer.Hide(self.sbsizer)    #隐藏服务器设置部分
             self.isShown = False    #服务器设置部分当前已隐藏
-            self.SetClientSize((330,200))    #更新面板尺寸
+            self.SetClientSize((330,118))    #更新面板尺寸
         else:
             self.sizer.Show(self.sbsizer)    #如果当前控件已隐藏
             self.setserverBtn.SetLabel(u'服务器设置↑')    #更新按钮标签
