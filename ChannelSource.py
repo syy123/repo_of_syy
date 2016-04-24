@@ -53,58 +53,58 @@ class ChannelSource(wx.Panel):
         self.sub_left_vsizer.Add(self.leftUpCanvas, 1, wx.ALL|wx.EXPAND)
         self.right_hsizer.Add(self.sub_left_vsizer, 1, wx.ALL|wx.EXPAND)
     def AddElementForLeftSizer(self):        
-        self.left_vsizer.Add(self.symbolNumberBox, 0, wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.symbolRateBox, 0, wx.ALL|wx.EXPAND, 2)       
-        self.left_vsizer.Add(self.sampleBox, 0, wx.ALL|wx.EXPAND, 2)     
-        self.left_vsizer.Add(self.ImpulseChoiceSizer, 0, wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.RaisedCosineSizer, 0,  wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.partialBox, 0,  wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.gaussBox, 0,  wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.CodeChoiceSizer, 0, wx.ALL|wx.EXPAND, 2) 
-        self.left_vsizer.Add(self.rectRatioBox, 0,  wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.ModulateSizer, 0, wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.carrierBox, 0, wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.FigureSizer, 0, wx.ALL|wx.EXPAND, 2)
-        self.left_vsizer.Add(self.buttonBox, 0, wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.symbolNumberBox, 1, wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.symbolRateBox, 1, wx.ALL|wx.EXPAND, 2)       
+        self.left_vsizer.Add(self.sampleBox, 1, wx.ALL|wx.EXPAND, 2)     
+        self.left_vsizer.Add(self.ImpulseChoiceSizer, 1, wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.RaisedCosineSizer, 1,  wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.partialBox, 1,  wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.gaussBox, 1,  wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.CodeChoiceSizer, 1, wx.ALL|wx.EXPAND, 2) 
+        self.left_vsizer.Add(self.rectRatioBox, 1,  wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.ModulateSizer, 1, wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.carrierBox, 1, wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.FigureSizer, 1, wx.ALL|wx.EXPAND, 2)
+        self.left_vsizer.Add(self.buttonBox, 1, wx.ALL|wx.EXPAND, 2)
         self.left_vsizer.Hide(self.RaisedCosineSizer)
         self.left_vsizer.Hide(self.partialBox)
         self.left_vsizer.Hide(self.gaussBox)
         self.left_vsizer.Hide(self.CodeChoiceSizer)
         self.left_vsizer.Hide(self.rectRatioBox)
+
     def ConfigSizersLayout(self):
-        self.TopSizer.Add(self.left_vsizer, 1, wx.ALL|wx.EXPAND)
-        self.TopSizer.Add(self.right_hsizer,4, wx.ALL|wx.EXPAND)
+        self.TopSizer.Add(self.left_vsizer, 1, wx.ALL|wx.EXPAND, 2)
+        self.TopSizer.Add(self.right_hsizer,4, wx.ALL|wx.EXPAND, 2)
         self.SetSizerAndFit(self.TopSizer)
         self.TopSizer.SetSizeHints(self)
-        self.Layout()
     def SymbolNumberBox(self):
         self.staticSymbolNumBox = wx.StaticBox(self, -1, u"码元数量")
         self.symbolNumberBox = wx.StaticBoxSizer(self.staticSymbolNumBox, wx.VERTICAL)      
         self.NumberTextCtrl = wx.TextCtrl(self, -1, "100",style = wx.TE_PROCESS_ENTER)
         self.NumberTextCtrl.SetToolTipString(u"按回车键结束输入")
         self.NumberTextCtrl.Bind(wx.EVT_TEXT_ENTER, self.TextNumber)
-        self.symbolNumberBox.Add(self.NumberTextCtrl, 0, wx.ALL|wx.EXPAND, 2)    
+        self.symbolNumberBox.Add(self.NumberTextCtrl, 1, wx.ALL|wx.EXPAND, 2)    
     def SymbolRateBox(self):
         self.staticSymbolRateBox = wx.StaticBox(self, -1, u"码元速率(B/s)")
         self.symbolRateBox = wx.StaticBoxSizer(self.staticSymbolRateBox, wx.VERTICAL)
         self.RateTextCtrl = wx.TextCtrl(self, -1, "1", style = wx.TE_PROCESS_ENTER)
         self.RateTextCtrl.SetToolTipString(u"按回车键结束输入")
         self.RateTextCtrl.Bind(wx.EVT_TEXT_ENTER, self.TextNumber)
-        self.symbolRateBox.Add(self.RateTextCtrl, 0, wx.ALL|wx.EXPAND, 2)
+        self.symbolRateBox.Add(self.RateTextCtrl, 1, wx.ALL|wx.EXPAND, 2)
     def SimpleBox(self):
         self.staticSampleBox = wx.StaticBox(self, -1, u"采样频率")
         self.sampleBox = wx.StaticBoxSizer(self.staticSampleBox, wx.VERTICAL)
         self.SampleTextCtrl = wx.TextCtrl(self, -1, "20", style = wx.TE_PROCESS_ENTER)
         self.SampleTextCtrl.SetToolTipString(u"按回车键结束输入")
         self.SampleTextCtrl.Bind(wx.EVT_TEXT_ENTER, self.TextNumber)
-        self.sampleBox.Add(self.SampleTextCtrl, 0, wx.ALL|wx.EXPAND, 2)
+        self.sampleBox.Add(self.SampleTextCtrl, 1, wx.ALL|wx.EXPAND, 2)
     def CarrierBox(self):
         self.statiCarrierBox = wx.StaticBox(self, -1, u"载波频率")
         self.carrierBox = wx.StaticBoxSizer(self.statiCarrierBox, wx.VERTICAL)
         self.CarrierTextCtrl = wx.TextCtrl(self, -1, "0", style = wx.TE_PROCESS_ENTER)
         self.CarrierTextCtrl.SetToolTipString(u"按回车键结束输入")
         self.CarrierTextCtrl.Bind(wx.EVT_TEXT_ENTER, self.TextNumber)
-        self.carrierBox.Add(self.CarrierTextCtrl, 0, wx.ALL|wx.EXPAND, 2)
+        self.carrierBox.Add(self.CarrierTextCtrl, 1, wx.ALL|wx.EXPAND, 2)
     def TextNumber(self, event):
         self.number = int(self.NumberTextCtrl.GetValue())
         self.rate = int(self.RateTextCtrl.GetValue())
@@ -117,8 +117,8 @@ class ChannelSource(wx.Panel):
         self.ratioBox = SliderBox(self, -1, u"脉冲宽度", 5, 1, int(self.SampleTextCtrl.GetValue()), 1,1)
         self.ratioBox.slider.Bind(wx.EVT_SLIDER, self.OnRatioSlider)
         self.rectRatioBox.Add(self.ratioBox.staticText, 0, wx.CENTER)
-        self.rectRatioBox.Add(self.ratioBox.slider, 0, wx.ALL|wx.EXPAND, 2)
-        self.rectRatioBox.Add(self.ratioBox.textCtrl, 0, wx.ALL|wx.EXPAND, 2)
+        self.rectRatioBox.Add(self.ratioBox.slider, 1, wx.ALL|wx.EXPAND, 2)
+        self.rectRatioBox.Add(self.ratioBox.textCtrl, 1, wx.ALL|wx.EXPAND, 2)
     def OnRatioSlider(self, event):
         self.ratioBox.textCtrl.SetValue(str(int(self.ratioBox.slider.GetValue())/1))
         event.Skip()
@@ -128,8 +128,8 @@ class ChannelSource(wx.Panel):
         self.staticRaisedBox = wx.StaticBox(self, -1, u"升余弦脉冲")
         self.RaisedCosineSizer = wx.StaticBoxSizer(self.staticRaisedBox, wx.VERTICAL)
         self.RaisedCosineSizer.Add(self.alphBox.staticText, 0, wx.CENTER)
-        self.RaisedCosineSizer.Add(self.alphBox.slider, 0, wx.ALL|wx.EXPAND, 2)
-        self.RaisedCosineSizer.Add(self.alphBox.textCtrl, 0, wx.ALL|wx.EXPAND, 2)    
+        self.RaisedCosineSizer.Add(self.alphBox.slider, 1, wx.ALL|wx.EXPAND, 2)
+        self.RaisedCosineSizer.Add(self.alphBox.textCtrl, 1, wx.ALL|wx.EXPAND, 2)    
     def OnAlphSlider(self, event):
         self.alphBox.textCtrl.SetValue(str(float(self.alphBox.slider.GetValue()) / 10))
         self.alph = float(self.alphBox.slider.GetValue()) / 10          
@@ -139,7 +139,7 @@ class ChannelSource(wx.Panel):
         self.partialBox = wx.StaticBoxSizer(self.staticPartialBox, wx.VERTICAL)
         self.typeChoice = wx.Choice(self, -1, choices = GetPartialTypeChoiceList())
         self.typeChoice.Bind(wx.EVT_CHOICE, self.PartialType)
-        self.partialBox.Add(self.typeChoice, 0, wx.ALL|wx.EXPAND, 2)
+        self.partialBox.Add(self.typeChoice, 1, wx.ALL|wx.EXPAND, 2)
     def PartialType(self, event):
         self.typeChoice.GetSelection()
         print 'type: ',self.typeChoice.GetSelection()
@@ -149,8 +149,8 @@ class ChannelSource(wx.Panel):
         self.sigmaBox.slider.Bind(wx.EVT_SLIDER, self.OnSigmaSlider)
         self.gaussBox = wx.StaticBoxSizer(self.staticGaussBox, wx.VERTICAL)
         self.gaussBox.Add(self.sigmaBox.staticText, 0, wx.CENTER)
-        self.gaussBox.Add(self.sigmaBox.slider, 0, wx.ALL|wx.EXPAND, 2)
-        self.gaussBox.Add(self.sigmaBox.textCtrl, 0, wx.ALL|wx.EXPAND, 2)
+        self.gaussBox.Add(self.sigmaBox.slider, 1, wx.ALL|wx.EXPAND, 2)
+        self.gaussBox.Add(self.sigmaBox.textCtrl, 1, wx.ALL|wx.EXPAND, 2)
     def OnSigmaSlider(self, event):
         self.sigmaBox.textCtrl.SetValue(str(float(self.sigmaBox.slider.GetValue())/10))
         self.sigma = float(self.sigmaBox.slider.GetValue())/10
@@ -170,7 +170,7 @@ class ChannelSource(wx.Panel):
             self.left_vsizer.Hide(self.gaussBox)
             self.left_vsizer.Hide(self.CodeChoiceSizer)
             self.left_vsizer.Hide(self.rectRatioBox)
-            #self.SetClientSize((100,30))
+            self.left_vsizer.Layout() #强制重绘
         elif self.impulseChoiceBox.GetLabelText() == PartialBoxName():
             print u'部分响应波形'
             self.left_vsizer.Show(self.partialBox)
@@ -178,6 +178,7 @@ class ChannelSource(wx.Panel):
             self.left_vsizer.Hide(self.gaussBox)
             self.left_vsizer.Hide(self.CodeChoiceSizer)
             self.left_vsizer.Hide(self.rectRatioBox)
+            self.left_vsizer.Layout()
         elif self.impulseChoiceBox.GetLabelText() == GaussBoxName():
             print u'高斯脉冲'
             self.left_vsizer.Show(self.gaussBox)
@@ -185,6 +186,7 @@ class ChannelSource(wx.Panel):
             self.left_vsizer.Hide(self.partialBox)
             self.left_vsizer.Hide(self.CodeChoiceSizer)
             self.left_vsizer.Hide(self.rectRatioBox)
+            self.left_vsizer.Layout()
         else:
             print u'矩形脉冲'
             self.left_vsizer.Show(self.CodeChoiceSizer)
@@ -192,6 +194,7 @@ class ChannelSource(wx.Panel):
             self.left_vsizer.Hide(self.RaisedCosineSizer)
             self.left_vsizer.Hide(self.partialBox)
             self.left_vsizer.Hide(self.gaussBox)
+            self.left_vsizer.Layout()
             
     def CodeChoiceBox(self):
         self.codeChoiceBox = wx.Choice(self, -1, choices = GetCodeChoiceList())
@@ -212,7 +215,7 @@ class ChannelSource(wx.Panel):
         self.modulateChoiceBox.GetSelection()
         print 'modulate:',self.modulateChoiceBox.GetSelection()
     def FigureShowBox(self):
-        self.figureChoiceBox = wx.CheckListBox(self, -1, choices = GetFigureChoiceList())
+        self.figureChoiceBox = wx.CheckListBox(self, -1,size = (100, 150), choices = GetFigureChoiceList())
         self.figureChoiceBox.Bind(wx.EVT_CHECKLISTBOX, self.FigureShow)
         self.staticFigure = wx.StaticBox(self, -1, u"图形显示")
         self.FigureSizer = wx.StaticBoxSizer(self.staticFigure, wx.VERTICAL)
@@ -302,10 +305,12 @@ class ChannelSource(wx.Panel):
         self.leftUpCanvas.draw()
     def ButtonBox(self):
         self.buttonBox = wx.BoxSizer(wx.VERTICAL)
+        self.static = wx.StaticBox(self, -1, u" ")
+        self.buttonBox = wx.StaticBoxSizer(self.static, wx.VERTICAL)
         self.starbutton = wx.Button(self, -1, u"开始")
         self.starbutton.SetToolTipString(u"开始运行")
         self.starbutton.Bind(wx.EVT_BUTTON, self.OnStart)
-        self.buttonBox.Add(self.starbutton, 1, wx.CENTER, 2)
+        self.buttonBox.Add(self.starbutton, 0, wx.ALL|wx.EXPAND, 2)
     def OnStart(self, event):
         if self.count > 4:
             print >> sys.stderr, u"最多选择四副图形，请重新选择..."
@@ -335,7 +340,7 @@ class ChannelSource(wx.Panel):
               
 class NewFrame(wx.Frame):
     def __init__(self, parent):
-        wx.Frame.__init__(self, parent, -1, "frame", size = (800,600))
+        wx.Frame.__init__(self, parent, -1, "frame", size = (800, 600))
         self.newPanel = ChannelSource(self)
 if __name__ == '__main__':
     app = wx.PySimpleApp()
