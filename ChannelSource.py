@@ -264,10 +264,10 @@ class ChannelSource(wx.Panel):
     def Draw(self,event):
         self.leftUpFigure.clear()
         self.axes.clear();   
-        if self.shapetime:            
+        if self.shapetime: 
             self.axes = self.leftUpFigure.add_subplot(self.m,self.n,self.shapetime)
             self.axes.plot(self.x,self.impulse,label = self.label)
-            self.axes.legend()           
+            self.axes.legend(loc='lower right')           
             self.axes.set_xlabel(u"时间/s")
             self.axes.set_title(u"脉冲时域波形")
             self.axes.set_ylabel(u"幅度")
@@ -334,8 +334,8 @@ class ChannelSource(wx.Panel):
             self.modulateImage = DoConvolution(self.impulse, self.image)
             self.signal, self.Idata, self.Qdata = modulate(self.modulateReal, self.modulateImage, self.number, self.Fs, self.rate, self.fc)
             self.f2,self.Spectrum = spectrum(self.signal, self.Fs, self.rate)
-            self.a = self.modulateReal[10.0*self.Fs:(self.number*self.Fs/self.div)+10.0*self.Fs:self.Fs]
-            self.b = self.modulateImage[10.0*self.Fs:(self.number*self.Fs/self.div)+10.0*self.Fs:self.Fs]           
+            self.a = self.modulateReal[15.0*self.Fs:(self.number*self.Fs/self.div)+5.0*self.Fs:self.Fs]
+            self.b = self.modulateImage[15.0*self.Fs:(self.number*self.Fs/self.div)+5.0*self.Fs:self.Fs]           
             self.PlotConfig(self)
               
 class NewFrame(wx.Frame):
