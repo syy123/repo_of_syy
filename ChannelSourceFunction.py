@@ -285,11 +285,13 @@ def CreateQamBinary(number,sample):
 
 '''频谱函数'''
 def spectrum(A, Fs, fs):
-    N = len(A)
+    N = 512
+    yfr = A[:512]
     yfr=np.fft.fft(A,N)
-    freqs = np.arange(0,Fs*fs,1.0*Fs*fs/N)
-    yfpr = np.abs(yfr)/Fs
-    print "len yfr,freqs",len(yfr),len(freqs)
+    yfr = np.fft.fftshift(yfr)
+    freqs = np.arange(-0.5*Fs*fs,0.5*Fs*fs,1.0*Fs*fs/N)
+    yfpr = np.abs(yfr)/N
+    #print "len yfr,freqs",len(yfr),len(freqs)
     return freqs,yfpr
 
 def modulate(a,b,number,div,fs,Fc):
